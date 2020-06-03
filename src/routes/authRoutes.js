@@ -1,20 +1,23 @@
 const express = require('express');
 const mongoose = require('mongoose');
+const jwt = require('jsonwebtoken');
 const User = mongoose.model('User');
+
 const router = express.Router();
+require('dotenv').config();
+
 
 router.post('/signup', async (req,res) => {
     const {email, password } = req.body;
     
     try {
-    const user = new User({email, password});
-    await user.save();
+        const user = new User({email, password});
+        await user.save();
 
-
-    const token = jwt.sign({userID: user_id}, 'MY_SECRET_KEY');
-    res.send({token});
+        const token = jwt.sign({userId: user._id}, process.env.JWT_KEY);
+        res.send({token});
     } catch (err) {
-    return res.status(422).send(err.message);
+        return res.status(422).send(err.message);
     }
 });
 
