@@ -1,0 +1,16 @@
+{
+  "name": "bitcoin-ticker",
+  "version": "1.0.0",
+  "description": "bitcoin exercise through Udemy course",
+  "main": "Index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Scott Breon",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "request": "^2.88.0"
+  }
+}
